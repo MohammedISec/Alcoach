@@ -1,6 +1,8 @@
 import { Inngest } from "inngest";
 import connectDB from "./db";
 import User from "@/models/User";
+import { use } from "react";
+import Order from "@/models/Order";
 
 // Create a client to send and receive events
 export const inngest = new Inngest({ id: "alcoach" });
@@ -63,5 +65,35 @@ export const syncUserDeletion = inngest.createFunction(
     const { id } = event.data;
     await connectDB();
     await User.findByIdAndDelete(id);
+  }
+);
+
+export const createUserOrder = inngest.createFunction(
+  {
+    id: "alcoach-create-order",
+    batchEvents: {
+      maxSize: 25,
+      timeout: "5s",
+    },
+  },
+  {
+    event: "order/created",
+  },
+  async ({ event }) => {
+    const orders = event.map((e) => {
+      return {
+        userId: e.data.userId,
+        items: e.data.items,
+        amount: e.data.amount,
+        address: e.data.address,
+        date: e.data.date,
+      };
+    });
+    await connectDB();
+    await Order.insertMany(orders);
+    return {
+      success: true,
+      processed: orders.length,
+    };
   }
 );
