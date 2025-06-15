@@ -1,14 +1,15 @@
 import { inngest } from "@/config/inngest";
 import Product from "@/models/Product";
-import { getAuth, User } from "@clerk/nextjs/server";
+import { getAuth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
+import User from "@/models/User";
 
 export async function POST(req) {
   try {
     const { userId } = getAuth(req);
     const { address, items } = await req.json();
 
-    if (!address || !items || items.length === 0) {
+    if (!address || items.length === 0) {
       return NextResponse.json(
         { success: false, message: "Invalid request data" },
         {
@@ -34,7 +35,7 @@ export async function POST(req) {
     });
 
     const user = await User.findById(userId);
-    user.cart = {};
+    user.cartItems = {};
     await user.save();
 
     return NextResponse.json(
@@ -45,6 +46,6 @@ export async function POST(req) {
     );
   } catch (error) {
     console.error("Error creating order:", error);
-    return NextResponse.json({ success: falsee, message: error.message });
+    return NextResponse.json({ success: false, message: error.message });
   }
 }
