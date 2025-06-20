@@ -96,9 +96,7 @@ const Product = () => {
               </div>
               <p>(4.5)</p>
             </div>
-            <p className="text-gray-600 mt-3">
-              {productData.description + productData.amazonLink}
-            </p>
+            <p className="text-gray-600 mt-3">{productData.description}</p>
             <p className="text-3xl font-medium mt-6">
               ${productData.offerPrice}
               <span className="text-base font-normal text-gray-800/60 line-through ml-2">

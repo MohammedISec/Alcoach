@@ -8,13 +8,22 @@ const outfit = Outfit({ subsets: ["latin"], weight: ["300", "400", "500"] });
 
 export const metadata = {
   title: "Alcoach",
-  description: "E-Commerce with Next.js ",
+  description: "Alcoach E-Commerce",
+  icons: {
+    rel: "icon",
+    type: "image/jpg",
+    sizes: "32x32",
+    url: "/logo.jpg",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
+        {/* <head>
+          <link rel="icon" href="/add_icon.svg" />
+        </head> */}
         <body className={`${outfit.className} antialiased text-gray-700`}>
           <Toaster />
           <AppContextProvider>{children}</AppContextProvider>
