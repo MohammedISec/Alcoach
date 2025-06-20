@@ -11,8 +11,9 @@ const AddProduct = () => {
 
   const [files, setFiles] = useState([]);
   const [name, setName] = useState("");
+  const [amazonLink, setAmazonLink] = useState("");
   const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("Earphone");
+  const [category, setCategory] = useState("Dumbbells");
   const [price, setPrice] = useState("");
   const [offerPrice, setOfferPrice] = useState("");
 
@@ -20,6 +21,7 @@ const AddProduct = () => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("name", name);
+    formData.append("amazonLink", amazonLink);
     formData.append("description", description);
     formData.append("category", category);
     formData.append("price", price);
@@ -39,8 +41,9 @@ const AddProduct = () => {
         toast.success(data.message);
         setFiles([]);
         setName("");
+        setAmazonLink("");
         setDescription("");
-        setCategory("Earphone");
+        setCategory("Dumbbells");
         setPrice("");
         setOfferPrice("");
       } else {
@@ -106,6 +109,21 @@ const AddProduct = () => {
           />
         </div>
         <div className="flex flex-col gap-1 max-w-md">
+          <label className="text-base font-medium" htmlFor="amazon-link">
+            Amazon Link
+          </label>
+          <input
+            id="amazon-link"
+            type="text"
+            placeholder="Type here"
+            className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
+            onChange={(e) => setAmazonLink(e.target.value)}
+            value={amazonLink}
+            required
+          />
+        </div>
+
+        <div className="flex flex-col gap-1 max-w-md">
           <label
             className="text-base font-medium"
             htmlFor="product-description"
@@ -133,13 +151,16 @@ const AddProduct = () => {
               onChange={(e) => setCategory(e.target.value)}
               defaultValue={category}
             >
-              <option value="Earphone">Earphone</option>
-              <option value="Headphone">Headphone</option>
-              <option value="Watch">Watch</option>
-              <option value="Smartphone">Smartphone</option>
-              <option value="Laptop">Laptop</option>
-              <option value="Camera">Camera</option>
-              <option value="Accessories">Accessories</option>
+              <option value="Dumbbells">Dumbbells</option>
+              <option value="Orbitrac">Orbitrac</option>
+              <option value="Rowing Matching">Rowing Matching</option>
+              <option value="Yoga">Yoga</option>
+              <option value="Sports Accessories">Sports Accessories</option>
+              <option value="Massage">Massage</option>
+              <option value="Home & Kitchen">Home & Kitchen</option>
+              <option value="School Bags">School Bags</option>
+              <option value="T-Shirts & Shorts">T-Shirts & Shorts</option>
+              <option value="Exercise Bikes">Exercise Bikes</option>
             </select>
           </div>
           <div className="flex flex-col gap-1 w-32">

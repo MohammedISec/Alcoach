@@ -1,9 +1,9 @@
 import React from "react";
-import HomeProductCard from "./HomeProductCard";
+import ProductCard from "./ProductCard";
 import { useAppContext } from "@/context/AppContext";
 import { assets } from "@/assets/assets";
-import ProductCard from "./ProductCard";
-const HomeProducts = () => {
+
+const ProductByCategory = () => {
   const { products, router } = useAppContext();
   const HomeProducts = [
     { id: 1, category: "Dumbbells", imgSrc: assets.Dumbbells },
@@ -18,16 +18,13 @@ const HomeProducts = () => {
     { id: 10, category: "Exercise Bikes", imgSrc: assets.Dumbbells },
   ];
   return (
-    <div className="flex flex-col items-start pt-14">
-      <div className="flex flex-col items-end pt-12">
-        <p className="text-2xl font-medium text-left w-full">
-          Shop by Category
-        </p>
-        <div className="w-16 h-0.5 bg-orange-600 rounded-full"></div>
-      </div>
+    <div className="flex flex-col items-center pt-14">
+      <p className="text-2xl font-medium text-left w-full underline">
+        Shop by Category:
+      </p>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 flex-col items-center gap-6 mt-6 pb-14 w-full">
-        {HomeProducts.map((product, index) => (
-          <HomeProductCard key={index} product={product} />
+        {products.map((product, index) => (
+          <ProductCard key={index} product={product} />
         ))}
       </div>
       <button
@@ -42,4 +39,4 @@ const HomeProducts = () => {
   );
 };
 
-export default HomeProducts;
+export default ProductByCategory;

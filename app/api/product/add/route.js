@@ -24,6 +24,7 @@ export async function POST(req) {
 
     // Extract fields from formData
     const name = formData.get("name");
+    const amazonLink = formData.get("amazonLink");
     const description = formData.get("description");
     const price = formData.get("price");
     const category = formData.get("category");
@@ -63,6 +64,7 @@ export async function POST(req) {
     const newProduct = await Product.create({
       userId,
       name,
+      amazonLink,
       description,
       image,
       price: Number(price),
