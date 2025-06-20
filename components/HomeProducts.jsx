@@ -21,10 +21,11 @@ const HomeProducts = () => {
     <div className="flex flex-col items-start pt-14">
       <div className="flex flex-col items-end pt-12">
         <p className="text-2xl font-medium text-left w-full">
-          Shop by Category
+          Shop by Category:
         </p>
-        <div className="w-16 h-0.5 bg-orange-600 rounded-full"></div>
+        <div className="w-20 h-0.5 bg-orange-600 rounded-full"></div>
       </div>
+
       <p className="text-md mt-2 font-medium">
         Find everything you need to power your workouts.
       </p>
@@ -33,14 +34,14 @@ const HomeProducts = () => {
           <HomeProductCard key={index} product={product} />
         ))}
       </div>
-      <button
+      {/* <button
         onClick={() => {
           router.push("/all-products");
         }}
         className="px-12 py-2.5 border rounded text-gray-500/70 hover:bg-slate-50/90 transition"
       >
         See more
-      </button>
+      </button> */}
     </div>
   );
 };
