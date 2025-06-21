@@ -75,7 +75,7 @@ const HeaderSlider = () => {
                 </button> */}
             {/* </div> */}
             {/* // </div> */}
-            <div className="w-full h-[610px] md:h-[500px] relative ">
+            <div className="w-[400px] h-[570px] md:h-[500px] relative ">
               {/* صورة للموبايل فقط */}
               <Image
                 src={assets.Cover_Mobile}
