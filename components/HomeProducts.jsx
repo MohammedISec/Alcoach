@@ -29,7 +29,7 @@ const HomeProducts = () => {
       <p className="text-md mt-2 font-medium">
         Find everything you need to power your workouts.
       </p>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 flex-col items-center gap-6 mt-6 pb-14 w-full">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 flex-col items-center gap-6 mt-6 pb-14 w-full ">
         {HomeProducts.map((product, index) => (
           <HomeProductCard key={index} product={product} />
         ))}

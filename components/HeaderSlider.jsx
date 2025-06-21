@@ -75,7 +75,15 @@ const HeaderSlider = () => {
                 </button> */}
             {/* </div> */}
             {/* // </div> */}
-            <div className="w-[400px] h-[570px] md:h-[500px] relative ">
+            <div
+              onClick={() => {
+                window.open(
+                  "https://www.amazon.sa/stores/ALCOACH/page/F121CAEF-5071-468F-AB9E-BBB290041BFC?lp_asin=B0C4Q1ZQLQ&ref_=ast_bln",
+                  "_blank"
+                );
+              }}
+              className="w-[400px] h-[570px] md:h-[500px] md:w-full relative "
+            >
               {/* صورة للموبايل فقط */}
               <Image
                 src={assets.Cover_Mobile}
