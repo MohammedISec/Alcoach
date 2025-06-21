@@ -75,12 +75,26 @@ const HeaderSlider = () => {
                 </button> */}
             {/* </div> */}
             {/* // </div> */}
-            <div className="flex  bg-blue-950 items-center flex-auto justify-center">
+            <div className="w-full h-[500px] relative">
+              {/* صورة للموبايل فقط */}
               <Image
-                className="md:w-full w-auto md:h-full object-cover rounded-xl"
-                src={slide.imgSrc}
-                alt={`Slide ${index + 1}`}
+                src={assets.Cover_Mobile}
+                alt="Mobile Cover"
+                className="block sm:hidden w-full h-full object-cover"
+                fill
+                sizes="100vw"
+                priority
               />
+              {/* صورة للابتوب فقط */}
+              <Image
+                src={assets.cover}
+                alt="Desktop Cover"
+                className="hidden sm:block w-full h-full object-fill"
+                fill
+                sizes="100vw"
+                priority
+              />
+              {/* محتوى فوق الصورة */}
             </div>
           </div>
         ))}
