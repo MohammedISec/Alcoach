@@ -75,12 +75,12 @@ const HeaderSlider = () => {
                 </button> */}
             {/* </div> */}
             {/* // </div> */}
-            <div className="w-full h-[610px] md:h-[400px] relative">
+            <div className="w-full h-[610px] md:h-[500px] relative ">
               {/* صورة للموبايل فقط */}
               <Image
                 src={assets.Cover_Mobile}
                 alt="Mobile Cover"
-                className="block sm:hidden w-full h-full object-fill"
+                className="block sm:hidden w-full h-full object-cover"
                 fill
                 sizes="100vw"
                 priority
